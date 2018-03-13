@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.0.0</Version>
+    <Authors>systemidx</Authors>
+    <Company />
+    <PackageLicenseUrl>https://github.com/systemidx/TeenyDependencyInjector/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/systemidx/TeenyDependencyInjector/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/systemidx/TeenyDependencyInjector/</RepositoryUrl>
+    <PackageTags>di, ioc, dependency, dependency injection, csharp, cs, c#</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TeenyDependencyInjector.Interfaces\TeenyDependencyInjector.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

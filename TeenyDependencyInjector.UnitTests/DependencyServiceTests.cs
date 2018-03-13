@@ -67,14 +67,15 @@ namespace TeenyDependencyInjector.UnitTests
         }
 
         [Fact]
-        public async Task RetrievingNotBoundInstanceThrowsException()
+        public async Task RetrievingNotBoundInstanceReturnsNull()
         {
             IDependencyService service = new DependencyService();
             ITestInterface obj = new TestImplA("test", 10);
 
             await service.RegisterInstanceAsync<ITestInterface, TestImplA>(obj, "mytestinstance");
 
-            await Assert.ThrowsAnyAsync<DependencyBindingException>(async () => await service.GetInstanceAsync<ITestInterface>("someotherinstance"));
+            ITestInterface result = await service.GetInstanceAsync<ITestInterface>("someotherinstance");
+            Assert.Null(result);
         }
 
         [Fact]

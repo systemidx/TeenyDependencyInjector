@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TeenyDependencyInjector
+namespace TeenyDependencyInjector.Structures
 {
     /// <summary>
     /// The structure for registering a binding

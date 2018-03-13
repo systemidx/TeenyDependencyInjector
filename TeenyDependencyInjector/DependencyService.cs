@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TeenyDependencyInjector.Exceptions;
 using TeenyDependencyInjector.Interfaces;
+using TeenyDependencyInjector.Structures;
 
 namespace TeenyDependencyInjector
 {

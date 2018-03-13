@@ -87,7 +87,7 @@ namespace TeenyDependencyInjector
             {
                 BindingStructure binding = _objects.FirstOrDefault(x => x.BindingType == typeof(TInterface));
                 if (binding.ConcreteType == null || binding.BindingType == null)
-                    throw new DependencyBindingException($"Unable to retrieve binding type '{typeof(TInterface).Name}' from collection");
+                    throw new DependencyBindingException($"Unable to retrieve binding type '{typeof(TInterface).Name}'. Make sure to register the type.");
 
                 return Activator.CreateInstance(binding.ConcreteType, binding.Parameters) as TInterface;
             });
@@ -108,7 +108,7 @@ namespace TeenyDependencyInjector
                     _objects.FirstOrDefault(x => x.BindingType == typeof(TInterface) && x.BindingName.Equals(bindingName, StringComparison.OrdinalIgnoreCase));
 
                 if (!(binding.BindingObject is TInterface rval))
-                    throw new DependencyBindingException($"Unable to retrieve binding type '{typeof(TInterface).Name}' from collection");
+                    throw new DependencyBindingException($"Unable to retrieve binding type '{typeof(TInterface).Name}'. Make sure to register the type or instance.");
 
                 return rval;
             });

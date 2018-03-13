@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Authors>systemidx</Authors>
     <Company />
     <PackageLicenseUrl>https://github.com/systemidx/TeenyDependencyInjector/blob/master/LICENSE</PackageLicenseUrl>
@@ -12,8 +12,8 @@
     <RepositoryUrl>https://github.com/systemidx/TeenyDependencyInjector/</RepositoryUrl>
     <PackageTags>di, ioc, dependency, dependency injection, csharp, cs, c#</PackageTags>
     <Description>A teeny, tiny, dependency injection and IOC framework</Description>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
-    <FileVersion>1.0.0.2</FileVersion>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
     <NeutralLanguage />
   </PropertyGroup>
 

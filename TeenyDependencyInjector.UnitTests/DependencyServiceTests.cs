@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using TeenyDependencyInjector.Exceptions;
 using TeenyDependencyInjector.Interfaces;
+using Moq;
 using Xunit;
 
 namespace TeenyDependencyInjector.UnitTests
@@ -103,6 +103,17 @@ namespace TeenyDependencyInjector.UnitTests
             ITestInterface b = await service.GetInstanceAsync<ITestInterface>("b");
 
             Assert.NotEqual(a, b);
+        }
+
+        [Fact]
+        public async Task ServerRunningFlagReturnsCorrectStatus()
+        {
+            IDependencyService utility = new DependencyService();
+            ITestInterface a = await utility.RegisterInstanceAsync<ITestInterface, ITestInterface>(new Mock<ITestInterface>().Object);
+            ITestInterface b = await utility.RegisterInstanceAsync<ITestInterface, ITestInterface>(new Mock<ITestInterface>().Object);
+
+            Assert.NotNull(a);
+            Assert.NotNull(b);
         }
     }
 }

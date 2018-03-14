@@ -1,6 +1,6 @@
 namespace TeenyDependencyInjector.UnitTests
 {
-    internal interface ITestInterface
+    public interface ITestInterface
     {
         string Content { get; set; }
     }

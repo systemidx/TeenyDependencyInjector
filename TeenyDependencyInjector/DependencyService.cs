@@ -32,7 +32,16 @@ namespace TeenyDependencyInjector
         /// <summary>
         /// The object collection
         /// </summary>
-        private readonly ConcurrentBag<BindingStructure> _objects = new ConcurrentBag<BindingStructure>();
+        private readonly ConcurrentBag<BindingStructure> _objects;
+
+        #endregion
+
+        #region Constructor
+
+        public DependencyService()
+        {
+            _objects = new ConcurrentBag<BindingStructure>();
+        }
 
         #endregion
 
@@ -48,7 +57,7 @@ namespace TeenyDependencyInjector
         {
             return await Task.Run(() =>
             {
-                if (_objects.Any(x => x.BindingName.ToLowerInvariant() == name?.ToLowerInvariant()))
+                if (_objects.Any(x => name != null && x.BindingName.ToLowerInvariant() == name.ToLowerInvariant()))
                     throw new DependencyBindingException("Dependency instance already exists");
 
                 _objects.Add(new BindingStructure(typeof(TInterface), typeof(TConcrete), instance, name));

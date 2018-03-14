@@ -37,21 +37,23 @@ namespace TeenyDependencyInjector
         #endregion
 
         /// <summary>
-        /// Registers the specific type instance asynchronously. Registering the instance with a name 
+        /// Registers the specific type instance asynchronously. Registering the instance with a name guarantees a unique instance.
         /// </summary>
         /// <typeparam name="TInterface">The type of the interface.</typeparam>
         /// <typeparam name="TConcrete">The type of the concrete.</typeparam>
         /// <param name="instance">The instance.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public async Task RegisterInstanceAsync<TInterface, TConcrete>(TInterface instance, string name = null) where TConcrete : class, TInterface
+        public async Task<TInterface> RegisterInstanceAsync<TInterface, TConcrete>(TInterface instance, string name = null) where TConcrete : class, TInterface
         {
-            await Task.Run(() =>
+            return await Task.Run(() =>
             {
                 if (_objects.Any(x => x.BindingName.ToLowerInvariant() == name?.ToLowerInvariant()))
                     throw new DependencyBindingException("Dependency instance already exists");
 
                 _objects.Add(new BindingStructure(typeof(TInterface), typeof(TConcrete), instance, name));
+
+                return instance;
             });
         }
 

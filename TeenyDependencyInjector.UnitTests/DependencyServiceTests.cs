@@ -67,6 +67,17 @@ namespace TeenyDependencyInjector.UnitTests
         }
 
         [Fact]
+        public async Task BindingInstanceReturnsSameObjectAfterBinding()
+        {
+            IDependencyService service = new DependencyService();
+            ITestInterface obj = new TestImplA("test", 10);
+
+            ITestInterface result = await service.RegisterInstanceAsync<ITestInterface, TestImplA>(obj, "mytestinstance");
+
+            Assert.Equal(result.Content, obj.Content);
+        }
+
+        [Fact]
         public async Task RetrievingNotBoundInstanceReturnsNull()
         {
             IDependencyService service = new DependencyService();
